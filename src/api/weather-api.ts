@@ -1,7 +1,6 @@
 import axios from "axios";
 import qs from "qs";
 
-const key: string = "";
 const baseURL: string = "https://api.openweathermap.org/data/2.5/";
 
 export type ApiCb = (err: any, data: any) => any;
@@ -12,31 +11,37 @@ export type URL =
   | "/forecast"
   | "/forecast/daily"
   | "/forecast/climate"
-  | "/solar_radiation";
+  | "/solar_radiation"
+  | "/box/city"
+  | "/find";
 
-export const weatherApi = async (
-  url: URL,
-  params: any,
-  callback?: ApiCb
-): Promise<any> => {
-  if (!params.appid) params.appid = key;
+export class WeatherApi {
+  readonly apiKey: string;
 
-  const response = axios({
-    method: "GET",
-    baseURL,
-    url,
-    params,
-    paramsSerializer: (params) =>
-      qs.stringify(params, { arrayFormat: "comma" }),
-  })
-    .then((res) => {
-      if (callback) callback(undefined, res.data);
-      return res.data;
+  constructor(apiKey: string) {
+    this.apiKey = apiKey;
+  }
+
+  api = async (url: URL, params: any, callback?: ApiCb): Promise<any> => {
+    if (!params.appid) params.appid = this.apiKey;
+
+    const response = axios({
+      method: "GET",
+      baseURL,
+      url,
+      params,
+      paramsSerializer: (params) =>
+        qs.stringify(params, { arrayFormat: "comma" }),
     })
-    .catch((err) => {
-      if (callback) callback(err, undefined);
-      else throw err;
-    });
+      .then((res) => {
+        if (callback) callback(undefined, res.data);
+        return res.data;
+      })
+      .catch((err) => {
+        if (callback) callback(err, undefined);
+        else throw err;
+      });
 
-  return response;
-};
+    return response;
+  };
+}

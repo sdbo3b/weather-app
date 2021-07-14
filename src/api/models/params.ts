@@ -1,57 +1,45 @@
+import { Mode, Units, Lang } from "./index";
+
 export interface ByCityNameParams {
   q: [string, string?, string?];
-  mode?: "xml" | "html";
-  units?: "standard" | "metric" | "imperial";
-  lang?:
-    | "af"
-    | "al"
-    | "ar"
-    | "az"
-    | "bg"
-    | "ca"
-    | "cz"
-    | "da"
-    | "de"
-    | "el"
-    | "en"
-    | "eu"
-    | "fa"
-    | "fi"
-    | "fr"
-    | "gl"
-    | "he"
-    | "hi"
-    | "hr"
-    | "hu"
-    | "id"
-    | "it"
-    | "ja"
-    | "kr"
-    | "la"
-    | "lt"
-    | "mk"
-    | "no"
-    | "nl"
-    | "pl"
-    | "pt"
-    | "pt_br"
-    | "ro"
-    | "ru"
-    | "sv"
-    | "se"
-    | "sk"
-    | "sl"
-    | "sp"
-    | "es"
-    | "sr"
-    | "th"
-    | "tr"
-    | "ua"
-    | "uk"
-    | "vi"
-    | "zh_cn"
-    | "zh_tw"
-    | "zu";
+  mode?: Mode;
+  units?: Units;
+  lang?: Lang;
 }
 
-export interface ByCityIdParams {}
+export interface ByCityIdParams {
+  id: string;
+  mode?: Mode;
+  units?: Units;
+  lang?: Lang;
+}
+
+export interface ByGeoCoordParams {
+  lat: string;
+  lon: string;
+  mode?: Mode;
+  units?: Units;
+  lang?: Lang;
+}
+
+export interface ByZipCodeParams {
+  zip: string;
+  mode: Mode;
+  units: Units;
+  lang: Lang;
+}
+
+export interface ByRectangleZoneParams {
+  bbox: [number, number, number, number, number];
+  units?: Units;
+  lang?: Lang;
+}
+
+export interface ByCitiesInCircleParams {
+  lat: string;
+  lon: string;
+  cnt?: string;
+  mode?: Mode;
+  units?: Units;
+  lang?: Lang;
+}
