@@ -2,7 +2,7 @@ import React from "react";
 
 const NavBar: React.FC = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           Weather
