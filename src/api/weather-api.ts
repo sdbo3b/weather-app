@@ -1,9 +1,10 @@
 import axios from "axios";
 import qs from "qs";
+import { ResponseData } from "./models";
 
 const baseURL: string = "https://api.openweathermap.org/data/2.5/";
 
-export type ApiCb = (err: any, data: any) => any;
+export type ApiCb = (err: any, data: ResponseData | undefined) => any;
 
 export type URL =
   | "/weather"
@@ -22,7 +23,11 @@ export class WeatherApi {
     this.apiKey = apiKey;
   }
 
-  api = async (url: URL, params: any, callback?: ApiCb): Promise<any> => {
+  api = async (
+    url: URL,
+    params: any,
+    callback?: ApiCb
+  ): Promise<ResponseData> => {
     if (!params.appid) params.appid = this.apiKey;
 
     const response = axios({

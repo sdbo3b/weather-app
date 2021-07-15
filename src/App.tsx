@@ -6,7 +6,7 @@ function App() {
   const click = (e: any) => {
     e.preventDefault();
     weatherApiClient.byCityName({ q: ["London", "uk"] }).then((data) => {
-      console.log(data);
+      console.log(data.main);
     });
   };
 
