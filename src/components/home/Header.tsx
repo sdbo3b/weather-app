@@ -4,7 +4,7 @@ import TemperatureUnits from "./TemperatureUnits";
 
 const Header: React.FC = () => {
   return (
-    <div className="row text-light border border-danger ">
+    <div className="row text-light py-3 px-3">
       <SearchField />
       <TemperatureUnits />
     </div>
