@@ -1,8 +1,8 @@
 import React from "react";
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           Weather

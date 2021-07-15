@@ -1,6 +1,7 @@
 import React from "react";
 import weatherApiClient from "./api/weather-api-client";
 import "./App.css";
+import Home from "./components/home/Home";
 import NavBar from "./components/nav/NavBar";
 
 function App() {
@@ -12,10 +13,9 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App min-vh-100">
       <NavBar />
-      <p>Hello World</p>
-      <button onClick={click}>test</button>
+      <Home />
     </div>
   );
 }
