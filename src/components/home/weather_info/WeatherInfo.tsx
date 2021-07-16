@@ -1,39 +1,51 @@
 import React from "react";
+import { useAppSelector } from "../../../state";
+import { WeatherDataStatus } from "../../../state/util";
 import Advice from "./Advice";
 import Details from "./Details";
 import FavouriteButton from "./Favourite";
 import PrimaryInfo from "./PrimaryInfo";
 
-const WeatherInfo: React.FC = () => {
+const RenderSpinner: React.FC = () => {
   return (
-    <div className="row border border-warning min-vh-100 justify-content-center align-items-center">
-      <div className="text-light w-25 row border border-danger">
-        <PrimaryInfo />
-        <Details details={deats} />
-        <Advice />
-        <FavouriteButton />
+    <div className="w-100 d-flex justify-content-center align-items-center">
+      <div className="spinner-border text-info" role="status">
+        <span className="visually-hidden"></span>
       </div>
     </div>
   );
 };
 
-const deats = [
-  {
-    detail: "Chance of Rain",
-    value: "30%",
-  },
-  {
-    detail: "Humidity",
-    value: "55%",
-  },
-  {
-    detail: "Feels Like",
-    value: "3°",
-  },
-  {
-    detail: "Wind",
-    value: "10 km/hr",
-  },
-];
+const RenderInfo: React.FC = () => {
+  return (
+    <React.Fragment>
+      <PrimaryInfo />
+      <Details />
+      <Advice />
+      <FavouriteButton />
+    </React.Fragment>
+  );
+};
+
+const WeatherInfo: React.FC = () => {
+  const state = useAppSelector((state) => state.weatherData.status);
+
+  const renderState = () => {
+    switch (state) {
+      case WeatherDataStatus.LOADING:
+        return <RenderSpinner />;
+      case WeatherDataStatus.LOADED:
+        return <RenderInfo />;
+    }
+  };
+
+  return (
+    <div className="row border border-warning min-vh-100 justify-content-center align-items-center">
+      <div className="text-light w-25 row border border-danger">
+        {renderState()}
+      </div>
+    </div>
+  );
+};
 
 export default WeatherInfo;
