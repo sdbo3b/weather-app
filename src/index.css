@@ -1,4 +1,11 @@
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -16,4 +23,8 @@ input:focus {
   background: none;
   border: none;
   outline: none;
+}
+
+#root {
+  flex-grow: 1;
 }

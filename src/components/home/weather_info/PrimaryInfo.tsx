@@ -20,8 +20,8 @@ const PrimaryInfo: React.FC = () => {
 
   return (
     <div>
-      <div className="col-12">{info.name ? info.name : "City"}</div>
-      <div className="col-12 ">
+      <div className="col-12 text-center">{info.name ? info.name : "City"}</div>
+      <div className="col-12 text-center">
         {info.weather ? info.weather![0].main : "Rain"}
       </div>
       <div className=" col-12 d-flex justify-content-center my-3 align-items-center">

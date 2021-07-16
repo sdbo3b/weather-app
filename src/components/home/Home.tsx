@@ -4,7 +4,7 @@ import WeatherInfo from "./weather_info/WeatherInfo";
 
 const Home: React.FC = () => {
   return (
-    <div className="container-fluid bg-dark min-vh-100">
+    <div className="container-fluid bg-dark h-100">
       <Header />
       <WeatherInfo />
     </div>

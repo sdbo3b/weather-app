@@ -8,7 +8,7 @@ import NavBar from "./components/nav/NavBar";
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="App min-vh-100">
+      <React.Fragment>
         <NavBar />
         <Switch>
           <Route path="/favourites">
@@ -18,7 +18,7 @@ const App: React.FC = () => {
             <Home />
           </Route>
         </Switch>
-      </div>
+      </React.Fragment>
     </Router>
   );
 };

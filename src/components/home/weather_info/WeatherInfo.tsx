@@ -8,7 +8,7 @@ import PrimaryInfo from "./PrimaryInfo";
 
 const RenderSpinner: React.FC = () => {
   return (
-    <div className="w-100 d-flex justify-content-center align-items-center">
+    <div className="w-100 h-100 d-flex justify-content-center align-items-center">
       <div className="spinner-border text-info" role="status">
         <span className="visually-hidden"></span>
       </div>
@@ -54,7 +54,7 @@ const WeatherInfo: React.FC = () => {
   };
 
   return (
-    <div className="row min-vh-100 justify-content-center align-items-center">
+    <div className="row justify-content-center align-items-center d-flex h-50">
       <div className="text-light w-25 row">{renderState()}</div>
     </div>
   );
