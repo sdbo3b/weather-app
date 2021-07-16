@@ -6,8 +6,14 @@ export enum MeasurementUnitActionType {
 export enum WeatherDataActionType {
   WEATHER_DATA_LOADING = "WEATHER_DATA_LOADING",
   WEATHER_DATA_LOADED = "WEATHER_DATA_LOADED",
+  WEATHER_DATA_ERROR = "WEATHER_DATA_ERROR",
 }
 
 export enum SearchFieldActionType {
   SET_SEARCH_FIELD_VALUE = "SET_SEARCH_FIELD_VALUE",
+}
+
+export enum FavouriteActionType {
+  ADD_FAVOURITE = "ADD_FAVOURITE",
+  REMOVE_FAVOURITE = "REMOVE_FAVOURITE",
 }

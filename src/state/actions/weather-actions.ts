@@ -12,3 +12,8 @@ export interface SetLoadedWeatherData {
   status: WeatherDataStatus.LOADED;
   payload: ResponseData;
 }
+
+export interface SetErrorWeatherData {
+  type: WeatherDataActionType.WEATHER_DATA_ERROR;
+  status: WeatherDataStatus.ERROR;
+}

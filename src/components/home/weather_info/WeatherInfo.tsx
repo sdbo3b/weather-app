@@ -16,6 +16,16 @@ const RenderSpinner: React.FC = () => {
   );
 };
 
+const RenderError: React.FC = () => {
+  return (
+    <div className="w-100 d-flex justify-content-center align-items-center">
+      <div>
+        <p>Error loading weather data. Please try again.</p>
+      </div>
+    </div>
+  );
+};
+
 const RenderInfo: React.FC = () => {
   return (
     <React.Fragment>
@@ -35,6 +45,10 @@ const WeatherInfo: React.FC = () => {
       case WeatherDataStatus.LOADING:
         return <RenderSpinner />;
       case WeatherDataStatus.LOADED:
+        return <RenderInfo />;
+      case WeatherDataStatus.ERROR:
+        return <RenderError />;
+      default:
         return <RenderInfo />;
     }
   };

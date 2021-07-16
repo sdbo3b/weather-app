@@ -6,4 +6,5 @@ export enum MeasurementUnit {
 export enum WeatherDataStatus {
   LOADING = "Loading",
   LOADED = "Loaded",
+  ERROR = "Error",
 }

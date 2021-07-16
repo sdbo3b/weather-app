@@ -1,6 +1,10 @@
 import { ResponseData } from "../../api/models";
 import { WeatherDataActionType } from "../action-types/action_types";
-import { SetLoadedWeatherData, SetLoadingWeatherData } from "../actions";
+import {
+  SetErrorWeatherData,
+  SetLoadedWeatherData,
+  SetLoadingWeatherData,
+} from "../actions";
 import { WeatherDataStatus } from "../util";
 
 export const setLoadedWeatherData = (
@@ -17,5 +21,12 @@ export const setLoadingWeatherData = (): SetLoadingWeatherData => {
   return {
     type: WeatherDataActionType.WEATHER_DATA_LOADING,
     status: WeatherDataStatus.LOADING,
+  };
+};
+
+export const setErrorWeatherData = (): SetErrorWeatherData => {
+  return {
+    type: WeatherDataActionType.WEATHER_DATA_ERROR,
+    status: WeatherDataStatus.ERROR,
   };
 };

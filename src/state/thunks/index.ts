@@ -1,5 +1,6 @@
 import weatherClient from "../../api/weather-api-client";
 import {
+  setErrorWeatherData,
   setLoadedWeatherData,
   setLoadingWeatherData,
 } from "../action_creators/weather-data";
@@ -21,7 +22,7 @@ export const fetchWeatherData = (): any => {
         dispatch(setLoadedWeatherData(data));
       })
       .catch((err) => {
-        console.log("An error occurred");
+        dispatch(setErrorWeatherData());
       });
   };
 };
