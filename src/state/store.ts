@@ -3,10 +3,16 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { State } from ".";
 import reducers from "./reducers";
-import { initialMeasurementUnitState } from "./reducers/index";
+import {
+  initialMeasurementUnitState,
+  initialWeatherDataState,
+  initialSearchFieldState,
+} from "./reducers/index";
 
 const initialState: State = {
   measurementUnit: initialMeasurementUnitState,
+  weatherData: initialWeatherDataState,
+  searchField: initialSearchFieldState,
 };
 
 const composedEnhancer = composeWithDevTools(applyMiddleware(thunk));

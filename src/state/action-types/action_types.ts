@@ -2,3 +2,12 @@ export enum MeasurementUnitActionType {
   SET_UNIT_CELSIUS = "SET_UNIT_CELSIUS",
   SET_UNIT_FAHRENHEIT = "SET_UNIT_FAHRENHEIT",
 }
+
+export enum WeatherDataActionType {
+  WEATHER_DATA_LOADING = "WEATHER_DATA_LOADING",
+  WEATHER_DATA_LOADED = "WEATHER_DATA_LOADED",
+}
+
+export enum SearchFieldActionType {
+  SET_SEARCH_FIELD_VALUE = "SET_SEARCH_FIELD_VALUE",
+}
