@@ -1,0 +1,4 @@
+export enum MeasurementUnitActionType {
+  SET_UNIT_CELSIUS = "SET_UNIT_CELSIUS",
+  SET_UNIT_FAHRENHEIT = "SET_UNIT_FAHRENHEIT",
+}
