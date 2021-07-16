@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { State } from ".";
-import reducers from "./reducers";
+import reducers, { initialFavouritesState } from "./reducers";
 import {
   initialMeasurementUnitState,
   initialWeatherDataState,
@@ -13,6 +13,7 @@ const initialState: State = {
   measurementUnit: initialMeasurementUnitState,
   weatherData: initialWeatherDataState,
   searchField: initialSearchFieldState,
+  favourites: initialFavouritesState,
 };
 
 const composedEnhancer = composeWithDevTools(applyMiddleware(thunk));

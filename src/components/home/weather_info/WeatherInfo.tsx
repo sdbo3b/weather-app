@@ -54,10 +54,8 @@ const WeatherInfo: React.FC = () => {
   };
 
   return (
-    <div className="row border border-warning min-vh-100 justify-content-center align-items-center">
-      <div className="text-light w-25 row border border-danger">
-        {renderState()}
-      </div>
+    <div className="row min-vh-100 justify-content-center align-items-center">
+      <div className="text-light w-25 row">{renderState()}</div>
     </div>
   );
 };
