@@ -1,13 +1,16 @@
 import React from "react";
+import { useAppSelector } from "../../state";
 import WeatherCard from "./WeatherCard";
 
 const Favourites: React.FC = () => {
+  const favourites = useAppSelector((state) => state.favourites.cities);
+
   return (
-    <div>
-      <div className="container-fluid border border-danger">
-        <div className="row flex-grow-1 border border-primary">
-          <WeatherCard />
-        </div>
+    <div className="container-fluid bg-dark h-100 w-100 text-white">
+      <div className="row gy-2 px-2">
+        {favourites.map((city) => {
+          return <WeatherCard city={city} />;
+        })}
       </div>
     </div>
   );

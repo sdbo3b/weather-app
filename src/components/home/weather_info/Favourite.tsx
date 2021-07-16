@@ -5,14 +5,19 @@ import { addFavourite, removeFavourite } from "../../../state/action_creators";
 
 const FavouriteButton: React.FC = () => {
   const dispatch = useAppDispatch();
-  const cityName = useAppSelector((state) => state.weatherData.data.name);
+  const city = useAppSelector((state) => state.weatherData.data);
   const favouritedCities = useAppSelector((state) => state.favourites.cities);
-  const isFavourited = favouritedCities.includes(cityName!);
+  let isFavourited: Boolean = false;
+
+  // Check if city has already been favourited
+  favouritedCities.forEach((item) => {
+    if (item.name === city.name) isFavourited = true;
+  });
 
   const onFavourite = () => {
-    if (cityName) {
-      if (isFavourited) dispatch(removeFavourite(cityName));
-      else dispatch(addFavourite(cityName));
+    if (city.name) {
+      if (isFavourited) dispatch(removeFavourite(city));
+      else dispatch(addFavourite(city));
     }
   };
 

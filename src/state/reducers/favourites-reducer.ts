@@ -1,8 +1,9 @@
+import { ResponseData } from "../../api/models";
 import { FavouriteActionType } from "../action-types/action_types";
 import { AddFavourite, RemoveFavourite } from "../actions/favourites-actions";
 
 export interface FavouritesState {
-  cities: string[];
+  cities: ResponseData[];
 }
 
 export const initialFavouritesState: FavouritesState = {
@@ -18,7 +19,7 @@ const favouritesReducer = (
       return { ...state, cities: [...state.cities, action.payload] };
     case FavouriteActionType.REMOVE_FAVOURITE:
       const updatedCities = state.cities.filter(
-        (element) => element !== action.payload
+        (element) => element.name !== action.payload.name
       );
       return { ...state, cities: [...updatedCities] };
     default:
