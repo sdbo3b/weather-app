@@ -1,5 +1,6 @@
 import React from "react";
 import { Menu } from "react-feather";
+import { Link } from "react-router-dom";
 
 const NavBar: React.FC = () => {
   return (
@@ -21,15 +22,20 @@ const NavBar: React.FC = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-          <button className="btn btn-light mx-1 rounded-pill" type="submit">
+          <Link
+            to="/"
+            className="btn btn-light mx-1 rounded-pill"
+            type="submit"
+          >
             Home
-          </button>
-          <button
+          </Link>
+          <Link
+            to="/favourites"
             className="btn btn-outline-light mx-1 rounded-pill"
             type="submit"
           >
             Favourites
-          </button>
+          </Link>
         </div>
       </div>
     </nav>
