@@ -1,6 +1,10 @@
 import { ResponseData } from "../../api/models";
 import weatherClient from "../../api/weather-api-client";
-import { refreshFavouritesData } from "../action_creators";
+import {
+  refreshFavouritesData,
+  setMeasurementUnitCelsius,
+  setMeasurementUnitFahrenheit,
+} from "../action_creators";
 import {
   setErrorWeatherData,
   setLoadedWeatherData,
@@ -55,5 +59,19 @@ export const reloadFavouritesData = (): any => {
     }
 
     dispatch(refreshFavouritesData(newData));
+  };
+};
+
+export const fetchMeasurementUnitCelsius = (): any => {
+  return async (dispatch: AppDispatch, getState: () => RootState) => {
+    dispatch(setMeasurementUnitCelsius());
+    dispatch(fetchWeatherData());
+  };
+};
+
+export const fetchMeasurementUnitFahrenheit = (): any => {
+  return async (dispatch: AppDispatch, getState: () => RootState) => {
+    dispatch(setMeasurementUnitFahrenheit());
+    dispatch(fetchWeatherData());
   };
 };

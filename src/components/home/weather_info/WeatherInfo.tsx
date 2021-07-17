@@ -9,8 +9,11 @@ import PrimaryInfo from "./PrimaryInfo";
 
 const RenderIdle: React.FC = () => {
   return (
-    <div className="w-100 h-100 d-flex justify-content-center align-items-center">
+    <div className="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
       <Sun size={64} />
+      <p className="mt-2 text-center">
+        Enter a city, then select a measurement unit to start search.
+      </p>
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../state";
+
 import {
-  setMeasurementUnitCelsius,
-  setMeasurementUnitFahrenheit,
-} from "../../state/action_creators";
+  fetchMeasurementUnitCelsius,
+  fetchMeasurementUnitFahrenheit,
+} from "../../state/thunks";
 import { MeasurementUnit } from "../../state/util";
 
 const TemperatureUnits: React.FC = () => {
@@ -21,14 +22,14 @@ const TemperatureUnits: React.FC = () => {
       <div className="row ">
         <p
           role="button"
-          onClick={() => dispatch(setMeasurementUnitCelsius())}
+          onClick={() => dispatch(fetchMeasurementUnitCelsius())}
           className={`col-md-12 ${isCelsiusSelected()}`}
         >
           Celsius
         </p>
         <p
           role="button"
-          onClick={() => dispatch(setMeasurementUnitFahrenheit())}
+          onClick={() => dispatch(fetchMeasurementUnitFahrenheit())}
           className={`col-md-12 ${isFahrenheightSelected()}`}
         >
           Fahrenheit

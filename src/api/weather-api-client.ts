@@ -26,15 +26,15 @@ const weatherClient = {
   ): Promise<ResponseData> => weatherApi.api("/weather", params, callback),
   byZipCode: async (
     params: ByZipCodeParams,
-    callback: ApiCb
+    callback?: ApiCb
   ): Promise<ResponseData> => weatherApi.api("/weather", params, callback),
   byRectangleZone: async (
     params: ByRectangleZoneParams,
-    callback: ApiCb
+    callback?: ApiCb
   ): Promise<ResponseData> => weatherApi.api("/box/city", params, callback),
   byCitiesInCircle: async (
     params: ByCitiesInCircleParams,
-    callback: ApiCb
+    callback?: ApiCb
   ): Promise<ResponseData> => weatherApi.api("/find", params, callback),
 };
 

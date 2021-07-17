@@ -1,17 +1,18 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
 import { Search } from "react-feather";
-import { useAppDispatch } from "../../state";
+import { useAppDispatch, useAppSelector } from "../../state";
 import { setSearchFieldValue } from "../../state/action_creators/search-field";
 import { fetchWeatherData } from "../../state/thunks";
 
 const SearchField: React.FC = () => {
   const dispatch = useAppDispatch();
+  const state = useAppSelector((state) => state.searchField);
 
   const onSubmit = (e: any) => {
     dispatch(fetchWeatherData());
   };
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: any) => {
     dispatch(setSearchFieldValue(e.target.value));
   };
 
@@ -25,6 +26,7 @@ const SearchField: React.FC = () => {
         </div>
         <input
           onChange={onChange}
+          value={state.value}
           className="col-10 border-0 bg-transparent text-light"
           type="text"
           placeholder="Search city..."
