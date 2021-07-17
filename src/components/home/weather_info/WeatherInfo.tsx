@@ -1,10 +1,19 @@
 import React from "react";
+import { Sun } from "react-feather";
 import { useAppSelector } from "../../../state";
 import { WeatherDataStatus } from "../../../state/util";
 import Advice from "./Advice";
 import Details from "./Details";
 import FavouriteButton from "./Favourite";
 import PrimaryInfo from "./PrimaryInfo";
+
+const RenderIdle: React.FC = () => {
+  return (
+    <div className="w-100 h-100 d-flex justify-content-center align-items-center">
+      <Sun size={64} />
+    </div>
+  );
+};
 
 const RenderSpinner: React.FC = () => {
   return (
@@ -48,8 +57,10 @@ const WeatherInfo: React.FC = () => {
         return <RenderInfo />;
       case WeatherDataStatus.ERROR:
         return <RenderError />;
+      case WeatherDataStatus.IDLE:
+        return <RenderIdle />;
       default:
-        return <RenderInfo />;
+        return <RenderIdle />;
     }
   };
 

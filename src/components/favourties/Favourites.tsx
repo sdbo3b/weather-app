@@ -9,7 +9,7 @@ const Favourites: React.FC = () => {
     <div className="container-fluid bg-dark h-100 w-100 text-white">
       <div className="row gy-2 px-2">
         {favourites.map((city) => {
-          return <WeatherCard city={city} />;
+          return <WeatherCard key={city.id} city={city} />;
         })}
       </div>
     </div>

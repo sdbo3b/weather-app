@@ -17,3 +17,8 @@ export interface SetErrorWeatherData {
   type: WeatherDataActionType.WEATHER_DATA_ERROR;
   status: WeatherDataStatus.ERROR;
 }
+
+export interface SetIdleWeatherData {
+  type: WeatherDataActionType.WEATHER_DATA_IDLE;
+  status: WeatherDataStatus.IDLE;
+}

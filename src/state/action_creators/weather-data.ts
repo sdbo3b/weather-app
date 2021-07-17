@@ -2,6 +2,7 @@ import { ResponseData } from "../../api/models";
 import { WeatherDataActionType } from "../action-types/action_types";
 import {
   SetErrorWeatherData,
+  SetIdleWeatherData,
   SetLoadedWeatherData,
   SetLoadingWeatherData,
 } from "../actions";
@@ -28,5 +29,12 @@ export const setErrorWeatherData = (): SetErrorWeatherData => {
   return {
     type: WeatherDataActionType.WEATHER_DATA_ERROR,
     status: WeatherDataStatus.ERROR,
+  };
+};
+
+export const setIdleWeatherData = (): SetIdleWeatherData => {
+  return {
+    type: WeatherDataActionType.WEATHER_DATA_IDLE,
+    status: WeatherDataStatus.IDLE,
   };
 };

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Menu } from "react-feather";
 import { Link } from "react-router-dom";
 
 const NavBar: React.FC = () => {
+  const [route, setRoute] = useState("/");
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
       <div className="container-fluid">
@@ -23,15 +25,21 @@ const NavBar: React.FC = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
           <Link
+            onClick={() => setRoute("/")}
             to="/"
-            className="btn btn-light mx-1 rounded-pill"
+            className={`btn ${
+              route === "/" ? "btn-light" : "btn-outline-light"
+            } mx-1 rounded`}
             type="submit"
           >
             Home
           </Link>
           <Link
+            onClick={() => setRoute("/favourites")}
             to="/favourites"
-            className="btn btn-outline-light mx-1 rounded-pill"
+            className={`btn ${
+              route === "/favourites" ? "btn-light" : "btn-outline-light"
+            } mx-1 rounded`}
             type="submit"
           >
             Favourites
