@@ -13,3 +13,7 @@ export const adviceMap = (description: string): string => {
       return "Enjoy your day.";
   }
 };
+
+export enum ValidationMessage {
+  EMPTY_FIELD = "* Please enter some text.",
+}

@@ -12,6 +12,8 @@ export enum WeatherDataActionType {
 
 export enum SearchFieldActionType {
   SET_SEARCH_FIELD_VALUE = "SET_SEARCH_FIELD_VALUE",
+  SET_SEARCH_FIELD_VALIDATION = "SET_VALIDATION",
+  CLEAR_SEARCH_FIELD_VALIDATION = "CLEAR_VALIDATION",
 }
 
 export enum FavouriteActionType {

@@ -1,19 +1,27 @@
 import React from "react";
 import { Search } from "react-feather";
 import { useAppDispatch, useAppSelector } from "../../state";
-import { setSearchFieldValue } from "../../state/action_creators/search-field";
+import {
+  clearSearchFieldValidation,
+  setSearchFieldValidation,
+  setSearchFieldValue,
+} from "../../state/action_creators/search-field";
 import { fetchWeatherData } from "../../state/thunks";
+import { ValidationMessage } from "../../util";
 
 const SearchField: React.FC = () => {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state.searchField);
 
   const onSubmit = (e: any) => {
-    dispatch(fetchWeatherData());
+    if (state.value === "")
+      dispatch(setSearchFieldValidation(ValidationMessage.EMPTY_FIELD));
+    else dispatch(fetchWeatherData());
   };
 
   const onChange = (e: any) => {
     dispatch(setSearchFieldValue(e.target.value));
+    dispatch(clearSearchFieldValidation());
   };
 
   return (

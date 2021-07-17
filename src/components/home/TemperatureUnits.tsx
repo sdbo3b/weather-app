@@ -1,14 +1,17 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../state";
+import { setSearchFieldValidation } from "../../state/action_creators";
 
 import {
   fetchMeasurementUnitCelsius,
   fetchMeasurementUnitFahrenheit,
 } from "../../state/thunks";
 import { MeasurementUnit } from "../../state/util";
+import { ValidationMessage } from "../../util";
 
 const TemperatureUnits: React.FC = () => {
   const unit = useAppSelector((state) => state.measurementUnit.unit);
+  const searchFieldState = useAppSelector((state) => state.searchField);
   const dispatch = useAppDispatch();
 
   const selectedStyle: string = "text-decoration-underline fw-bold";
@@ -22,14 +25,22 @@ const TemperatureUnits: React.FC = () => {
       <div className="row ">
         <p
           role="button"
-          onClick={() => dispatch(fetchMeasurementUnitCelsius())}
+          onClick={() => {
+            if (searchFieldState.value === "")
+              dispatch(setSearchFieldValidation(ValidationMessage.EMPTY_FIELD));
+            else dispatch(fetchMeasurementUnitCelsius());
+          }}
           className={`col-md-12 ${isCelsiusSelected()}`}
         >
           Celsius
         </p>
         <p
           role="button"
-          onClick={() => dispatch(fetchMeasurementUnitFahrenheit())}
+          onClick={() => {
+            if (searchFieldState.value === "")
+              dispatch(setSearchFieldValidation(ValidationMessage.EMPTY_FIELD));
+            else dispatch(fetchMeasurementUnitFahrenheit());
+          }}
           className={`col-md-12 ${isFahrenheightSelected()}`}
         >
           Fahrenheit
