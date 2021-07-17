@@ -17,4 +17,5 @@ export enum SearchFieldActionType {
 export enum FavouriteActionType {
   ADD_FAVOURITE = "ADD_FAVOURITE",
   REMOVE_FAVOURITE = "REMOVE_FAVOURITE",
+  REFRESH_FAVOURITES = "REFRESH_FAVOURITES",
 }

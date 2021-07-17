@@ -10,3 +10,8 @@ export interface RemoveFavourite {
   type: FavouriteActionType.REMOVE_FAVOURITE;
   payload: ResponseData;
 }
+
+export interface RefreshFavourites {
+  type: FavouriteActionType.REFRESH_FAVOURITES;
+  payload: ResponseData[];
+}
