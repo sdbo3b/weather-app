@@ -1,14 +1,34 @@
 import React from "react";
-import { CloudRain } from "react-feather";
+import { Cloud, CloudDrizzle, CloudLightning, Sun } from "react-feather";
 import { useAppSelector } from "../../../state";
 import { MeasurementUnit } from "../../../state/util";
 
-const convertUnit = (value: string, unit: "C" | "F") => {
+const WeatherIcon: React.FC = () => {
+  const description = useAppSelector(
+    (state) => state.weatherData.data.weather![0].main
+  );
+  const desc = description.toLocaleLowerCase();
+
+  switch (desc) {
+    case "clouds":
+      return <Cloud className="mx-2" size={40} />;
+    case "rain":
+      return <CloudDrizzle className="mx-2" size={40} />;
+    case "clear":
+      return <Sun className="mx-2" size={40} />;
+    case "thunderstorm":
+      return <CloudLightning className="mx-2" size={40} />;
+    default:
+      return <Cloud className="mx-2" size={40} />;
+  }
+};
+
+const convertUnit = (value: string, conversion: "toF" | "toC") => {
   const val = Number.parseFloat(value);
-  if (unit === "C") {
+  if (conversion === "toF") {
     const result = val * 1.8 + 32;
     return result.toString();
-  } else if (unit === "F") {
+  } else if (conversion === "toC") {
     const result = (val - 32) * 0.5556;
     return result.toString();
   }
@@ -17,7 +37,16 @@ const convertUnit = (value: string, unit: "C" | "F") => {
 const PrimaryInfo: React.FC = () => {
   const info = useAppSelector((state) => state.weatherData.data);
   const currentUnit = useAppSelector((state) => state.measurementUnit);
-
+  const celsiusValue = () => {
+    if (currentUnit.unit === MeasurementUnit.FAHRENHEIT) {
+      return `${convertUnit(info.main!.temp.toString(), "toF")}`;
+    }
+    if (currentUnit.unit === MeasurementUnit.CELSIUS) {
+      return `${info.main!.temp.toString()}°`;
+    } else {
+      return `${convertUnit(info.main!.temp.toString(), "toC")}`;
+    }
+  };
   return (
     <div>
       <div className="col-12 text-center">{info.name ? info.name : "City"}</div>
@@ -26,17 +55,9 @@ const PrimaryInfo: React.FC = () => {
       </div>
       <div className=" col-12 d-flex justify-content-center my-3 align-items-center">
         <p className="fs-1 d-flex align-items-center justify-content-center">
-          {currentUnit.unit === MeasurementUnit.CELSIUS ? (
-            <span className="mx-2">
-              {info.main ? info.main!.temp.toString() + "°" : ""}
-            </span>
-          ) : (
-            <span className="mx-2">
-              {info.main ? convertUnit(`${info.main!.temp}`, "C") : ""}
-            </span>
-          )}
+          {celsiusValue()}
 
-          <CloudRain className="mx-2" size={40} />
+          <WeatherIcon />
         </p>
       </div>
     </div>
