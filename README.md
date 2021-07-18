@@ -3,6 +3,12 @@
 A weather app that allows you to query the current weather of a city.\
 Enter a city in the search field and click the search icon, or select either celsius or fahrenheit to begin search.
 
+## Before Running Install dependencies
+
+### `npm install`
+
+Installs the dependencies
+
 ## Running The App Using Node.js
 
 In the project directory, you can run:
