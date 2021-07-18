@@ -9,6 +9,11 @@ Enter a city in the search field and click the search icon, or select either cel
 
 Installs the dependencies
 
+## Setup api client
+
+In the weather-api-client.ts file located in /src/api \
+Add your open weather api key to the WeatherApi instance constructor on the weatherApi variable.
+
 ## Running The App Using Node.js
 
 In the project directory, you can run:

@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./Header";
+import Header from "./header/Header";
 import WeatherInfo from "./weather_info/WeatherInfo";
 
 const Home: React.FC = () => {

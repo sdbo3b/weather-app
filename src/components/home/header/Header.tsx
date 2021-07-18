@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppSelector } from "../../state";
+import { useAppSelector } from "../../../state/index";
 import SearchField from "./SearchField";
 import TemperatureUnits from "./TemperatureUnits";
 

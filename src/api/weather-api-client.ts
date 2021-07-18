@@ -9,7 +9,7 @@ import {
   ResponseData,
 } from "./models";
 
-const weatherApi = new WeatherApi("6dbbb02f8c1533de469419abbb56c106");
+const weatherApi = new WeatherApi("");
 
 const weatherClient = {
   byCityName: async (

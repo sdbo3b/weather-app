@@ -1,13 +1,13 @@
 import React from "react";
 import { Search } from "react-feather";
-import { useAppDispatch, useAppSelector } from "../../state";
+import { useAppDispatch, useAppSelector } from "../../../state";
 import {
   clearSearchFieldValidation,
   setSearchFieldValidation,
   setSearchFieldValue,
-} from "../../state/action_creators/search-field";
-import { fetchWeatherData } from "../../state/thunks";
-import { ValidationMessage } from "../../util";
+} from "../../../state/action_creators/search-field";
+import { fetchWeatherData } from "../../../state/thunks";
+import { ValidationMessage } from "../../../util";
 
 const SearchField: React.FC = () => {
   const dispatch = useAppDispatch();
