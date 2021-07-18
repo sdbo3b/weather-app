@@ -5,6 +5,8 @@ Enter a city in the search field and click the search icon, or select either cel
 
 ## Install Dependencies Using Node.js Npm
 
+In the project directory, you can run:
+
 ### `npm install`
 
 Installs the dependencies
