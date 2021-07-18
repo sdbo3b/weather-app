@@ -9,7 +9,7 @@ Enter a city in the search field and click the search icon, or select either cel
 
 Installs the dependencies
 
-## Setup api client
+## Setup API Client
 
 In the weather-api-client.ts file located in /src/api \
 Add your open weather api key to the WeatherApi instance constructor on the weatherApi variable.
