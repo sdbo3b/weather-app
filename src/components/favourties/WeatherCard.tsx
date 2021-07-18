@@ -15,7 +15,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ city }) => {
   };
 
   return (
-    <div className="col-sm-2 mx-1 py-1">
+    <div className="col-md-3 mx-1 py-1">
       <div className="row text-dark bg-light rounded border border-primary">
         <div className="col-6">
           <p className="fs-1 col-12">{city.main?.temp}°</p>

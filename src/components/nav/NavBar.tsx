@@ -8,9 +8,9 @@ const NavBar: React.FC = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <Link to="/" className="navbar-brand" onClick={() => setRoute("/")}>
           Weather
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
