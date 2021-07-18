@@ -17,7 +17,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 Builds the production version of the app into a build folder.\
 You may serve it with a static server:
 
-npm install -g serve
+npm install -g serve \
 serve -s build
 
 # Live Example
