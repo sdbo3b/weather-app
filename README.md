@@ -1,6 +1,6 @@
 # About The App
 
-A weather app that allows you to query the current weather of a city.
+A weather app that allows you to query the current weather of a city.\
 Enter a city in the search field and click the search icon, or select either celsius or fahrenheit to begin search.
 
 ## Running The App Using Node.js
