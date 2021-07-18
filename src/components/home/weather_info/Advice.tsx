@@ -9,8 +9,8 @@ const Advice: React.FC = () => {
 
   const advice = adviceMap(forecast);
   return (
-    <div className="col-12 my-3">
-      <p>{advice}</p>
+    <div className="col-12 my-3 d-flex justify-content-center">
+      <p className="text-start">{advice}</p>
     </div>
   );
 };

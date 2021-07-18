@@ -9,7 +9,7 @@ const NavBar: React.FC = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
-          Current Weather
+          Weather
         </a>
         <button
           className="navbar-toggler"

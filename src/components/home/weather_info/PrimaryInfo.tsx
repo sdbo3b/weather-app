@@ -27,14 +27,13 @@ const PrimaryInfo: React.FC = () => {
 
   return (
     <div>
-      <div className="col-12 text-center">{info.name ? info.name : "City"}</div>
+      <div className="col-12 text-center">{info.name ? info.name : ""}</div>
       <div className="col-12 text-center">
-        {info.weather ? info.weather![0].main : "Rain"}
+        {info.weather ? info.weather![0].main : ""}
       </div>
       <div className=" col-12 d-flex justify-content-center my-3 align-items-center">
         <p className="fs-1 d-flex align-items-center justify-content-center">
-          {info.main!.temp.toString()}
-
+          {info.main!.temp.toString()}°
           <WeatherIcon />
         </p>
       </div>

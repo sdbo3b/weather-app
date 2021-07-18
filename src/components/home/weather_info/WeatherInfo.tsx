@@ -69,7 +69,7 @@ const WeatherInfo: React.FC = () => {
 
   return (
     <div className="row justify-content-center align-items-center d-flex h-50">
-      <div className="text-light w-25 row">{renderState()}</div>
+      <div className="text-light container-sm row">{renderState()}</div>
     </div>
   );
 };
