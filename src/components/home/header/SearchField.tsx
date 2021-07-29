@@ -14,6 +14,7 @@ const SearchField: React.FC = () => {
   const state = useAppSelector((state) => state.searchField);
 
   const onSubmit = (e: any) => {
+    e.preventDefault();
     if (state.value === "")
       dispatch(setSearchFieldValidation(ValidationMessage.EMPTY_FIELD));
     else dispatch(fetchWeatherData());
@@ -26,20 +27,23 @@ const SearchField: React.FC = () => {
 
   return (
     <div className="col-md-8 d-flex justify-content-start align-self-start">
-      <div className="row border-bottom border-2 border-light pb-1">
-        <div className="col-2">
-          <div onClick={onSubmit} role="button" className="d-flex ">
-            <Search />
+      <form onSubmit={onSubmit}>
+        <div className="row border-bottom border-2 border-light pb-1">
+          <div className="col-2">
+            <div onClick={onSubmit} role="button" className="d-flex ">
+              <Search />
+            </div>
           </div>
+
+          <input
+            onChange={onChange}
+            value={state.value}
+            className="col-10 border-0 bg-transparent text-light"
+            type="text"
+            placeholder="Search city..."
+          />
         </div>
-        <input
-          onChange={onChange}
-          value={state.value}
-          className="col-10 border-0 bg-transparent text-light"
-          type="text"
-          placeholder="Search city..."
-        />
-      </div>
+      </form>
     </div>
   );
 };
